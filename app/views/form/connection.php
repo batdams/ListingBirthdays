@@ -1,7 +1,7 @@
 <div class="connection-container">
     <div class="connection-content">
-        <h1>Connexion à <b>BdayList</b></h1>
-        <p>Connectez-vous pour accéder à vos anniversaires enregistrés !</p>
+        <h1 class="main-title">Connexion à <b>BdayList</b></h1>
+        <p>Connectez-vous pour accéder à vos anniversaires enregistrés !</p> <br>
 
         <form action="/login" method="POST" class="form-connexion">
             <div class="form-group">

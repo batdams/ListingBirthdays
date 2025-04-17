@@ -15,7 +15,6 @@ require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/APIController.php';
 require_once 'app/controllers/UserController.php';
 require_once 'app/controllers/AboutController.php';
-require_once 'app/controllers/OutsideController.php';
 require_once 'app/views/ViewManager.php';
 
 // Ajout du routeur

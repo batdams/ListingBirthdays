@@ -1,8 +1,8 @@
 <div class="home-container">
     <div class="home-content">
-        <h1>N'oubliez plus les anniversaires !</h1>
+        <h1 class="main-title">N'oubliez plus les anniversaires !</h1>
         <p>Avec <b>BdayList</b>, vous pouvez :</p>
-        <ul>
+        <ul class="home-features">
             <li>✅ Créer un compte en quelques secondes</li>
             <li>✅ Enregistrer les anniversaires de vos proches</li>
             <li>✅ Consulter la liste des prochains anniversaires à tout moment</li>

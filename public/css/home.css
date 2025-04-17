@@ -1,14 +1,14 @@
-/* Styles pour la page d'accueil */
-
 /* ------------------------  Desktop View  ------------------------ */
-.home-container, .connection-container {
+/* common style */
+
+.home-container, .api-container, .connection-container {
     text-align: center;
     padding: 20px;
     display: flex;
     justify-content: center;
 }
 
-.home-content, .connection-content {
+.home-content, .api-content, .connection-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,26 +20,13 @@
     background-color: rgba(255, 255, 255, 0.8); /* Fond clair pour le contenu */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.home-content h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.home-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.home-content ul li {
-    margin-bottom: 10px;
     font-size: 1.1em;
 }
 
-.home-actions {
-    margin-top: 20px;
+.main-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333333;
 }
 
 .btn-action {
@@ -57,19 +44,93 @@
     background-color: #3728c9;
 }
 
+.home-features, .api-steps {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.home-features li, .api-steps li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #4430f9;
+}
+
+.home-actions {
+    margin-top: 20px;
+}
+
+/* API Style */
+
+/* Connection Style */
+/* Styles pour le formulaire */
+.form-connexion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Groupes de champs */
+.form-group {
+    text-align: left;
+}
+
+/* Labels */
+.form-group label {
+    font-size: 0.9em;
+    color: #333333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Champs de saisie */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Effet au focus */
+.form-group input:focus {
+    border-color: #4430f9;
+    outline: none;
+}
+
+/* Lien pour s'inscrire */
+.not-registered {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666666;
+}
+
+.not-registered .btn-link {
+    color: #4430f9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.not-registered .btn-link:hover {
+    color: #3728c9;
+}
+
 /* ------------------------  Mobile View  ------------------------ */
 
 @media (max-width: 768px) {
-    .home-container, .connection-container {
+    .home-container, .api-container, .connection-container {
         flex-direction: column;
         padding: 2px;
     }
 
-    .home-content, .connection-content {
+    .home-content, .api-content, .connection-content {
         width: 100%;
     }
 
-    .home-content h1 {
+    .main-title {
         font-size: 1.5em;
     }
 
