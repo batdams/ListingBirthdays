@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body{
+    background-image: url('../pictures/sparkle.jpg');
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex: 1;
+    margin: 20px;
+}
+
+/* ------------------------  Header  ------------------------------ */
+/* ------------------------  Desktop View  ------------------------ */
+
+header{
+    font-weight: 700;
+    font-size: 1.2em;
+    padding-top: 10px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.navbar-nav {
+    display: inline-flex;
+    width: auto;
+    list-style: none;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+}
+.nav-link {
+    display: flex;
+    padding: 10px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    text-decoration: none;
+    color: #000;
+}
+.nav-link-active {
+    background-color: #4430f9;
+}
+
+.nav-icone img {
+    width: 48px;
+    height: 48px;
+}
+/* ------------------------ Header  -------------------------------------- */
+/* ------------------------ mobile view -----------------------------------*/
+@media (max-width: 768px) {
+    .nav-link {
+        width: 36px;
+        height: 36px;
+    }
+    .nav-icone img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ------------------------  Footer  ------------------------------ */
+/* ------------------------  Desktop View  ------------------------ */
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.footer-section {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.footer-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+.footer-icon-weather {
+    width: 96px;
+    height: 96px;
+    margin-right: 5px;
+}
+
+.footer-link {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* ------------------------  Footer  ------------------------------ */
+/* ------------------------  Mobile View  ------------------------ */
+@media (max-width: 768px) {
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-item {
+        margin-right: 10px;
+    }
+    .footer-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .footer-icon-weather {
+        width: 48px;
+        height: 48px;
+    }
+}

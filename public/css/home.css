@@ -1,0 +1,85 @@
+/* Styles pour la page d'accueil */
+
+/* ------------------------  Desktop View  ------------------------ */
+.home-container, .connection-container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.home-content, .connection-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 75%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8); /* Fond clair pour le contenu */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-content h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.home-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.home-content ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.home-actions {
+    margin-top: 20px;
+}
+
+.btn-action {
+    padding: 10px 20px;
+    min-width: 200px;
+    background-color: #4430f9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-action:hover {
+    background-color: #3728c9;
+}
+
+/* ------------------------  Mobile View  ------------------------ */
+
+@media (max-width: 768px) {
+    .home-container, .connection-container {
+        flex-direction: column;
+        padding: 2px;
+    }
+
+    .home-content, .connection-content {
+        width: 100%;
+    }
+
+    .home-content h1 {
+        font-size: 1.5em;
+    }
+
+    .home-content ul li {
+        font-size: 1em;
+    }
+
+    .btn-action {
+        padding: 8px 16px 8px 16px;
+        margin: 4px;
+        font-size: 0.9em;
+    }
+}
