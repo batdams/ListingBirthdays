@@ -8,6 +8,8 @@ class User
     private string $name;
     private string $surname;
     private string $pseudo;
+    private string $role;
+    private string $createdAt;
 
     // GETTERS
     public function getId() : int

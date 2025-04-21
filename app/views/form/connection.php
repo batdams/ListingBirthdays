@@ -2,8 +2,7 @@
     <div class="connection-content">
         <h1 class="main-title">Connexion à <b>BdayList</b></h1>
         <p>Connectez-vous pour accéder à vos anniversaires enregistrés !</p> <br>
-
-        <form action="/login" method="POST" class="form-connexion">
+        <form action="<?php echo BASE_URL; ?>/login" method="POST" class="form-connexion">
             <div class="form-group">
                 <label for="email">Adresse e-mail</label>
                 <input type="email" id="email" name="email" required placeholder="votre@email.com">
@@ -18,7 +17,6 @@
                 <button type="submit" class="btn-action">Se connecter</button>
             </div>
         </form>
-
         <p class="not-registered">
             Pas encore inscrit ? <a href="/register" class="btn-link">Créer un compte</a>
         </p>

@@ -2,28 +2,31 @@
 
 namespace service;
 
-function sessionStart(): void
+class SessionService
 {
-    // Démarre une nouvelle session ou reprend une session existante
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+    public static function sessionStart(): void
+    {
+        // Démarre une nouvelle session ou reprend une session existante
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
     }
-}
 
-function  checkSession(): bool
-{
-    // Vérifie si la session est active et si l'utilisateur est connecté
-    if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
-        return true;
+    public static function checkSession(): bool
+    {
+        // Vérifie si la session est active et si l'utilisateur est connecté
+        if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
-function sessionDestroy(): void
-{
-    // Détruit la session en cours
-    if (session_status() === PHP_SESSION_ACTIVE) {
-        session_unset();
-        session_destroy();
+    public static function sessionDestroy(): void
+    {
+        // Détruit la session en cours
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_unset();
+            $_SESSION = [];
+        }
     }
 }

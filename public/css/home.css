@@ -47,7 +47,7 @@
 .home-features, .api-steps {
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 10px;
 }
 
 .home-features li, .api-steps li {
@@ -57,7 +57,7 @@
 }
 
 .home-actions {
-    margin-top: 20px;
+    padding: 10px;
 }
 
 /* API Style */

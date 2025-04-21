@@ -55,6 +55,23 @@ header{
     width: 48px;
     height: 48px;
 }
+
+.nav-logout {
+    position: absolute; /* Position absolue pour placer l'élément */
+    top: 10px; /* Distance depuis le haut de l'écran */
+    right: 10px; /* Distance depuis la droite de l'écran */
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacement entre l'icône et le texte */
+    padding: 0px 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    color: #333;
+    z-index: 1000; /* Assure que l'élément reste au-dessus des autres */
+}
 /* ------------------------ Header  -------------------------------------- */
 /* ------------------------ mobile view -----------------------------------*/
 @media (max-width: 768px) {
@@ -64,6 +81,9 @@ header{
     }
     .nav-icone img {
         width: 36px;
+        height: 36px;
+    }
+    .nav-logout {
         height: 36px;
     }
 }

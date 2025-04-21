@@ -15,6 +15,7 @@ require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/APIController.php';
 require_once 'app/controllers/UserController.php';
 require_once 'app/controllers/AboutController.php';
+require_once 'app/services/sessionService.php';
 require_once 'app/views/ViewManager.php';
 
 // Ajout du routeur
@@ -29,9 +30,11 @@ $router = new Router();
 $router->addRoute('GET', BASE_URL . '/',            'HomeController',   'index');
 
 // création de nouvelles routes
-$router->addRoute('GET', BASE_URL . '/home',        'HomeController',   'getHomePage');
-$router->addRoute('GET', BASE_URL . '/API',         'APIController',    'getAPIPage');
-$router->addRoute('GET', BASE_URL.  '/connection',  'UserController',   'getConnectionForm');
+$router->addRoute('GET', BASE_URL  . '/home',           'HomeController',   'getHomePage');
+$router->addRoute('GET', BASE_URL  . '/API',            'APIController',    'getAPIPage');
+$router->addRoute('GET', BASE_URL  . '/connection',     'UserController',   'getConnectionForm');
+$router->addRoute('POST', BASE_URL . '/login',          'UserController',   'userConnect');
+$router->addRoute('POST', BASE_URL . '/logout',         'UserController',   'userDisconnect');
 
 $router->addRoute('POST', BASE_URL.'/userBdayCreation', 'UserController', 'userBirthdaysSetting');
 $router->addRoute('POST', BASE_URL.'/userCreationView', 'UserController', 'userSubscription');
