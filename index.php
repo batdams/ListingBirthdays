@@ -23,11 +23,9 @@ require_once 'app/models/Router.php';
 
 // Instanciation du routeur
 $router = new Router();
-//var_dump($_SESSION);
-//ECHO PHP_SESSION_ACTIVE;
 
 // Définition de la route initiale
-$router->addRoute('GET', BASE_URL . '/',            'HomeController',   'index');
+$router->addRoute('GET', BASE_URL . '/',                'HomeController',   'index');
 
 // création de nouvelles routes
 $router->addRoute('GET', BASE_URL  . '/home',           'HomeController',   'getHomePage');

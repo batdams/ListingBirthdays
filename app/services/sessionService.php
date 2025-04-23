@@ -26,7 +26,6 @@ class SessionService
         // Détruit la session en cours
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_unset();
-            $_SESSION = [];
         }
     }
 }
