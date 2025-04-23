@@ -12,7 +12,7 @@ export function navLinkConnection() {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const url = this.getAttribute('href');
-
+            console.log(url);
             // Select the currently active nav item
             let navItemActive = document.querySelector('.nav-link-active');
 
@@ -36,6 +36,10 @@ export function navLinkConnection() {
                     }
                 })
                 .catch(error => console.error('Error:', error));
+            // Update the browser's URL without reloading
+            history.pushState(null, '', url);
+            // Optionally, you can also update the browser's title
+            // const pageTitle = this.getAttribute('data-title');
         });
     });
 }
