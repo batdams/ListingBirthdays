@@ -9,14 +9,11 @@ class UserController extends Controller
 
   public function getConnectionForm() : void
   {
-    $this->viewManager->renderMainContent('form/connection.php');
+    $this->viewManager->render('form/connection.php');
   }
 
   public function userConnect() : void
   {
-
-    SessionService::sessionStart();
-
     if (isset($_POST['email']) && isset($_POST['password'])) {
       $email = $_POST['email'];
       $password = $_POST['password'];
@@ -27,10 +24,21 @@ class UserController extends Controller
       }
 
     }
-    //$_SESSION['email'] = $email;
+    $_SESSION['email'] = $email;
+    $_SESSION['role'] = 'user';
     //$_SESSION['password'] = $password;
     //$_SESSION['role'] = 'user';
-    $this->viewManager->render('home/homeConnected.php', ['messageTest' => $email]);
+    $this->viewManager->render('home/birthdayDashboard.php', ['messageTest' => $email]);
+  }
+
+  public function getBirthdayDashboard() : void
+  {
+    $this->viewManager->render('home/birthdayDashboard.php');
+  }
+
+  public function getAPIDashboard() : void
+  {
+    $this->viewManager->render('home/apiDashboard.php');
   }
 
   public function userDisconnect() : void

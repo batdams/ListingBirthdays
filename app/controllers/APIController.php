@@ -7,6 +7,6 @@ class APIController extends Controller
     
     public function getAPIPage(): void
     { 
-        $this->viewManager->renderMainContent('api/api.php');
+        $this->viewManager->render('api/api.php');
     }
 }

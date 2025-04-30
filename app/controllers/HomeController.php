@@ -18,6 +18,6 @@ class HomeController extends Controller
 
   public function getHomePage() : void
   {
-    $this->viewManager->renderMainContent('home/home.php');
+    $this->viewManager->render('home/home.php');
   }
 }

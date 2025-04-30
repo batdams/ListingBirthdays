@@ -12,25 +12,11 @@ class ViewManager
      */
     public function loadHeader()
     {
-        include_once 'app/views/templates/header.php';
-    }
-
-        /**
-     * Charge le header pour un utilisateur connecté
-     * @return void
-     */
-    public function loadAdminHeader()
-    {
-        include_once 'app/views/templates/headerLogged.php';
-    }
-
-    /**
-     * Charge le header pour un utilisateur connecté
-     * @return void
-     */
-    public function loadUserHeader()
-    {
-        include_once 'app/views/templates/headerLogged.php';
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
+            include_once 'app/views/templates/headerLogged.php';
+        } else {
+            include_once 'app/views/templates/header.php';
+        }
     }
 
     /**
@@ -57,30 +43,22 @@ class ViewManager
      * @param string $view Le nom de la vue à afficher
      * @return void
      */
-    public function render($view, $parameters = [])
+    public function render($view)
     {
-        // Extrait les paramètres pour les rendre accessibles dans la vue
-        extract($parameters, \EXTR_PREFIX_ALL, 'data');
-
-        // Vérification si l'utilisateur est connecté
-        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-            // Charge le header pour un utilisateur connecté
-            $this->loadAdminHeader();
-        } else if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
-            // Charge le header pour un utilisateur connecté
-            $this->loadUserHeader();
-        } else {
-            // Charge le header non connecté
-            $this->loadHeader();
-        }
+        // Charge le header
+        $this->loadHeader();
         // Charge le contenu de la vue spécifiée
         include_once "app/views/$view";
         // Charge le footer commun à toutes les pages
         $this->loadFooter();
     }
 
+    // fonction pour les requetes AJAX
     public function renderMainContent($view, $parameters = [])
     {
+        // Extrait les paramètres pour les rendre accessibles dans la vue
+        //extract($parameters, \EXTR_PREFIX_ALL, 'data');
+
         // Charge le contenu de la vue spécifiée
         $this->loadContent("$view");
     }

@@ -1,4 +1,7 @@
 <?php
+
+use service\SessionService;
+
 class Router { 
     private array $routes; // private array $routes = [] pour php7.4+ (et donc construct() inutile)
 
@@ -19,12 +22,13 @@ class Router {
      * @param string action : action à effectuer 
      * @return void
      */
-    public function addRoute(string $method,string $path, string $controller, string $action)  { 
+    public function addRoute(string $method,string $path, string $controller, string $action, bool $isLogged = false) {
         $this->routes [] = [
             'method' => $method,
             'path' => $path,
             'controller' =>$controller,
-            'action' => $action
+            'action' => $action,
+            'isLogged' => $isLogged
         ];    
     }
 
@@ -39,15 +43,39 @@ class Router {
  * @return array|null : tableau associatif contenant les détails du controleur et de l'action si une correspondance est trouvée, sinon null.
  */
     public function getHandler(string $method, string $uri) { 
-        foreach($this->routes as $route) {
-            if($route['method'] === $method && $route['path'] === $uri) {
-                return [
-                'method' => $route['method'],
-                'controller' => $route['controller'],
-                'action' => $route['action'],
+        foreach ($this->routes as $route) {
+            // Vérifier si la route correspond à la méthode et au chemin
+            if ($route['method'] === $method && $route['path'] === $uri) {
+                // Si la route nécessite une session
+                if ($route['isLogged'] == 1) {
+                    if (!SessionService::checkSession()) {
+                        // Rediriger vers le formulaire de connexion si la session est absente
+                        return [
+                            'method' => 'GET',
+                            'controller' => 'UserController',
+                            'action' => 'getConnectionForm',
                         ];
+                    } else {
+                        // Retourner la route si la session est valide
+                        return [
+                            'method' => $route['method'],
+                            'controller' => $route['controller'],
+                            'action' => $route['action'],
+                        ];
+                    }
+                }
+
+                // Si la route ne nécessite pas de session
+                return [
+                    'method' => $route['method'],
+                    'controller' => $route['controller'],
+                    'action' => $route['action'],
+                ];
             }
         }
-    return null;
-    } 
+
+        // Si aucune route ne correspond, retourner null
+        return null;
+    }
+
 }

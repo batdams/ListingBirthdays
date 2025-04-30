@@ -1,5 +1,8 @@
 <?php
 
+// Mise en place de la session
+require_once 'app/services/sessionService.php';
+Service\SessionService::sessionStart();
 // Récupération de la config pour la connexion à la BDD
 require_once 'app/config/config.php';
 
@@ -15,7 +18,6 @@ require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/APIController.php';
 require_once 'app/controllers/UserController.php';
 require_once 'app/controllers/AboutController.php';
-require_once 'app/services/sessionService.php';
 require_once 'app/views/ViewManager.php';
 
 // Ajout du routeur
@@ -24,16 +26,19 @@ require_once 'app/models/Router.php';
 // Instanciation du routeur
 $router = new Router();
 
-// Définition de la route initiale
-$router->addRoute('GET', BASE_URL . '/',                'HomeController',   'index');
-
-// création de nouvelles routes
-$router->addRoute('GET', BASE_URL  . '/home',           'HomeController',   'getHomePage');
-$router->addRoute('GET', BASE_URL  . '/API',            'APIController',    'getAPIPage');
-$router->addRoute('GET', BASE_URL  . '/connection',     'UserController',   'getConnectionForm');
-$router->addRoute('POST', BASE_URL . '/login',          'UserController',   'userConnect');
-$router->addRoute('POST', BASE_URL . '/logout',         'UserController',   'userDisconnect');
-
+// Définition des routes
+// routes non connectées
+$router->addRoute('GET', BASE_URL  . '/',                'HomeController',   'index', 0);
+$router->addRoute('GET', BASE_URL  . '/home',           'HomeController',   'getHomePage', 0);
+$router->addRoute('GET', BASE_URL  . '/API',            'APIController',    'getAPIPage', 0);
+$router->addRoute('GET', BASE_URL  . '/connection',     'UserController',   'getConnectionForm', 0);
+// routes de connexion et déconnexion
+$router->addRoute('POST', BASE_URL . '/login',          'UserController',   'userConnect', 0);
+$router->addRoute('GET', BASE_URL . '/logout',          'UserController',   'userDisconnect', 1);
+// routes connectées
+$router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
+$router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);
+// routes non traitées
 $router->addRoute('POST', BASE_URL.'/userBdayCreation', 'UserController', 'userBirthdaysSetting');
 $router->addRoute('POST', BASE_URL.'/userCreationView', 'UserController', 'userSubscription');
 $router->addRoute('GET', BASE_URL.'/userView', 'UserController', 'index');
@@ -43,6 +48,8 @@ $router->addRoute('GET', BASE_URL.'/logout', 'UserController', 'userDisconnect')
 // Récupération des informations de la requête via la super variable $_SERVER 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
+
+$routesRequiringSession = ['/login', '/logout', '/listing', '/APIKey'];
 
 // Récupération du handler associé à la requête
 $handler = $router->getHandler($method, $uri);

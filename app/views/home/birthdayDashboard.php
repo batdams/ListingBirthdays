@@ -7,6 +7,7 @@
             </div>
             <div class="">
                 <h3>Votre liste d'anniversaires</h3>
+                <?php var_dump($_SESSION); ?>
                 <p><?php var_dump($data_messageTest) ?>
                 <ul> 
                     <?php foreach ($_SESSION['birthdays'] as $birthday): ?>
