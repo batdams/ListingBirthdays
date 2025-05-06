@@ -2,6 +2,8 @@
 
 namespace controllers;
 
+use service\SessionService;
+
 class HomeController extends Controller
 {
    /**
@@ -13,11 +15,20 @@ class HomeController extends Controller
    */
   public function index(): void
   { 
-    $this->viewManager->render('home/home.php');
+    if (SessionService::checkSession()) {
+      $this->viewManager->render('home/birthdayDashboard.php');
+    } else {
+      $this->viewManager->render('home/home.php');
+    }
+
   }
 
   public function getHomePage() : void
   {
-    $this->viewManager->render('home/home.php');
+    if (SessionService::checkSession()) {
+      $this->viewManager->render('home/birthdayDashboard.php');
+    } else {
+      $this->viewManager->render('home/home.php');
+    }
   }
 }

@@ -28,16 +28,16 @@ $router = new Router();
 
 // Définition des routes
 // routes non connectées
-$router->addRoute('GET', BASE_URL  . '/',                'HomeController',   'index', 0);
+$router->addRoute('GET', BASE_URL  . '/',               'HomeController',   'index', 0);
 $router->addRoute('GET', BASE_URL  . '/home',           'HomeController',   'getHomePage', 0);
 $router->addRoute('GET', BASE_URL  . '/API',            'APIController',    'getAPIPage', 0);
 $router->addRoute('GET', BASE_URL  . '/connection',     'UserController',   'getConnectionForm', 0);
 // routes de connexion et déconnexion
 $router->addRoute('POST', BASE_URL . '/login',          'UserController',   'userConnect', 0);
-$router->addRoute('GET', BASE_URL . '/logout',          'UserController',   'userDisconnect', 1);
+$router->addRoute('GET', BASE_URL .  '/logout',          'UserController',   'userDisconnect', 1);
 // routes connectées
-$router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
-$router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);
+// $router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
+// $router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);
 // routes non traitées
 $router->addRoute('POST', BASE_URL.'/userBdayCreation', 'UserController', 'userBirthdaysSetting');
 $router->addRoute('POST', BASE_URL.'/userCreationView', 'UserController', 'userSubscription');

@@ -28,7 +28,8 @@ class UserController extends Controller
     $_SESSION['role'] = 'user';
     //$_SESSION['password'] = $password;
     //$_SESSION['role'] = 'user';
-    $this->viewManager->render('home/birthdayDashboard.php', ['messageTest' => $email]);
+    header('Location: ' . BASE_URL . '/home');
+    exit();
   }
 
   public function getBirthdayDashboard() : void
@@ -44,6 +45,7 @@ class UserController extends Controller
   public function userDisconnect() : void
   {
     SessionService::sessionDestroy();
-    $this->viewManager->render('form/connection.php');
+    header('Location: ' . BASE_URL . '/home');
+    exit();
   }
 }

@@ -12,11 +12,7 @@ class ViewManager
      */
     public function loadHeader()
     {
-        if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
-            include_once 'app/views/templates/headerLogged.php';
-        } else {
-            include_once 'app/views/templates/header.php';
-        }
+        include_once 'app/views/templates/header.php';
     }
 
     /**
