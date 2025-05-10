@@ -6,6 +6,7 @@
         <title>Accueil formulaire birthday</title>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/styles.css" type="text/css">
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/home.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/components.css" type="text/css">
     </head>
     <body>
         <header>

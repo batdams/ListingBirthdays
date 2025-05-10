@@ -1,0 +1,7 @@
+/* ------------------------  FORM  ------------------------------ */
+.isValid {
+    border: 1px solid green;
+}
+.isNotValid {
+    border: 1px solid red;
+}

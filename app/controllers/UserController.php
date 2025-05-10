@@ -2,7 +2,10 @@
 
 namespace controllers;
 
+require_once __DIR__ . '/../models/UserModel.php';
+
 use service\SessionService;
+use models\UserModel;
 
 class UserController extends Controller
 {
@@ -15,15 +18,20 @@ class UserController extends Controller
   public function userConnect() : void
   {
     if (isset($_POST['email']) && isset($_POST['password'])) {
-      $email = $_POST['email'];
-      $password = $_POST['password'];
+      $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) ;
+      $password = trim($_POST['password']);
 
-      if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $this->viewManager->render('form/connection.php', ['error' => 'Invalid email format']);
-        return;
+      if($email && $password) {
+        $userModel = new UserModel();
+        $user = $userModel->findByEmail($email);
+      } else {
+        $error = 'formulaire invalide.';
       }
 
+    } else {
+      $error = 'mail ou mot de passe non défini.';
     }
+    $_SESSION['user'] = $user;
     $_SESSION['email'] = $email;
     $_SESSION['role'] = 'user';
     //$_SESSION['password'] = $password;

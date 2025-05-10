@@ -3,8 +3,11 @@
 // Mise en place de la session
 require_once 'app/services/sessionService.php';
 Service\SessionService::sessionStart();
-// Récupération de la config pour la connexion à la BDD
-require_once 'app/config/config.php';
+
+//require_once 'app/core/envLoader.php';
+
+// Chargement de la configuration des utilitaires
+require_once 'app/config/utilsConfig.php';
 
 // Définition de la constante pour l'URL
 define("BASE_URL", '/ListingBirthdays');
@@ -69,9 +72,4 @@ $controllerClassName = '\controllers\\' . $controllerClassName;
 $controller = new $controllerClassName($viewManager);
 
 $action = $handler['action'];
-$pdo = new PDO($mySQLDSN, $config['username'], $config['password']);
-if ($controllerClassName == 'HomeController') {
-    $controller->$action();
-} else {
-    $controller->$action($pdo);
-}
+$controller->$action();

@@ -1,5 +1,7 @@
 <?php
 
+namespace models;
+
 class User
 {
     private int $id;
@@ -9,7 +11,7 @@ class User
     private string $surname;
     private string $pseudo;
     private string $role;
-    private string $createdAt;
+    private string $created_at;
 
     // GETTERS
     public function getId() : int
@@ -27,5 +29,9 @@ class User
     public function getPseudo() : string
     {
         return $this->pseudo;
+    }
+
+    public function getFullName() {
+        return $this->name . ' ' . $this->surname;
     }
 }
