@@ -26,11 +26,23 @@ class User
     {
         return $this->password;
     }
+    public function getName() : string
+    {
+        return $this->name;
+    }
+    public function getSurname() : string
+    {
+        return $this->surname;
+    }
     public function getPseudo() : string
     {
         return $this->pseudo;
     }
-
+    public function getRole() : string
+    {
+        return $this->role;
+    }
+    // Methodes
     public function getFullName() {
         return $this->name . ' ' . $this->surname;
     }

@@ -24,6 +24,14 @@ class UserController extends Controller
       if($email && $password) {
         $userModel = new UserModel();
         $user = $userModel->findByEmail($email);
+        if ($user && password_verify($password, $user->getPassword())) {
+          session_regenerate_id(true);
+          $_SESSION['email'] = $user->getEmail();
+          $_SESSION['role'] = 'user';
+          $_SESSION['pseudo'] = $user->getPseudo();
+        } else {
+          $error = 'identifiants incorrects.';
+        }
       } else {
         $error = 'formulaire invalide.';
       }
@@ -31,11 +39,7 @@ class UserController extends Controller
     } else {
       $error = 'mail ou mot de passe non défini.';
     }
-    $_SESSION['user'] = $user;
-    $_SESSION['email'] = $email;
-    $_SESSION['role'] = 'user';
-    //$_SESSION['password'] = $password;
-    //$_SESSION['role'] = 'user';
+
     header('Location: ' . BASE_URL . '/home');
     exit();
   }

@@ -15,7 +15,7 @@ class SessionService
     public static function checkSession(): bool
     {
         // Vérifie si la session est active et si l'utilisateur est connecté
-        if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['email'])) {
+        if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['role'])) {
             return true;
         }
         return false;
