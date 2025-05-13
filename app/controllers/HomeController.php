@@ -3,6 +3,9 @@
 namespace controllers;
 
 use service\SessionService;
+use models\BirthdayModel;
+
+require_once __DIR__ . '/../models/BirthdayModel.php';
 
 class HomeController extends Controller
 {
@@ -16,6 +19,7 @@ class HomeController extends Controller
   public function index(): void
   { 
     if (SessionService::checkSession()) {
+      $_SESSION['birthdays'] = $this->getData();
       $this->viewManager->render('home/birthdayDashboard.php');
     } else {
       $this->viewManager->render('home/home.php');
@@ -26,9 +30,23 @@ class HomeController extends Controller
   public function getHomePage() : void
   {
     if (SessionService::checkSession()) {
+      $_SESSION['birthdays'] = $this->getData();
       $this->viewManager->render('home/birthdayDashboard.php');
     } else {
       $this->viewManager->render('home/home.php');
+    }
+  }
+
+  public function getData() : ?array
+  {
+    if (SessionService::checkSession()) {
+      $userId = $_SESSION['id'];
+      $birthdayModel = new BirthdayModel();
+      $birthdays = $birthdayModel->getAllBirthdays($userId);
+      // $_SESSION['birthdays'] = $birthdays;
+      return $birthdays;
+    } else {
+      return null;
     }
   }
 }

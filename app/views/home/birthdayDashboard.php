@@ -8,12 +8,17 @@
         <div class="">
             <h3>Votre liste d'anniversaires</h3>
             <?php echo $_SESSION['email']; ?>
-            <p><?php var_dump($data_messageTest) ?>
-            <ul> 
-                <?php foreach ($_SESSION['birthdays'] as $birthday): ?>
-                <li><?php echo $birthday->getName() . " " . $birthday->getSurname() . " : " . $birthday->getBirthdayDate(); ?></li>
-                <?php endforeach; ?>
-            </ul>
+            <p>
+                <ul>
+                    <?php if (empty($_SESSION['birthdays'])): ?>
+                    <li>Aucun anniversaire enregistré.</li>
+                    <?php else: ?>
+                    <li>Voici la liste de vos anniversaires :</li>
+                    <?php foreach ($_SESSION['birthdays'] as $birthday): ?>
+                    <li><?php echo $birthday->getName() . " " . $birthday->getSurname() . " : " . $birthday->getBirthday(); ?></li>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
             </p>
         </div>
         <div class="bdayAdd">

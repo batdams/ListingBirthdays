@@ -2,10 +2,10 @@
 
 namespace controllers;
 
-require_once __DIR__ . '/../models/UserModel.php';
-
 use service\SessionService;
 use models\UserModel;
+
+require_once __DIR__ . '/../models/UserModel.php';
 
 class UserController extends Controller
 {
@@ -27,6 +27,7 @@ class UserController extends Controller
         if ($user && password_verify($password, $user->getPassword())) {
           session_regenerate_id(true);
           $_SESSION['email'] = $user->getEmail();
+          $_SESSION['id'] = $user->getId();
           $_SESSION['role'] = 'user';
           $_SESSION['pseudo'] = $user->getPseudo();
         } else {
