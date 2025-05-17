@@ -45,6 +45,11 @@ class UserController extends Controller
     exit();
   }
 
+  public function addBirthday() : void
+  {
+    
+  }
+
   public function getBirthdayDashboard() : void
   {
     $this->viewManager->render('home/birthdayDashboard.php');

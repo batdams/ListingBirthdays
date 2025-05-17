@@ -28,11 +28,5 @@
                     </li>
                 </ul>
             </nav>
-            <!--
-            <div class="nav-logout">
-                <a id="link-logout" class="link-logout nav-icone" href="<?php //echo BASE_URL;?>/logout">
-                   <img src="public/pictures/logout.svg" alt="logout">
-                </a>
-            </div>-->
         </header>
         <main id="main-container">

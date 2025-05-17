@@ -43,7 +43,6 @@ class HomeController extends Controller
       $userId = $_SESSION['id'];
       $birthdayModel = new BirthdayModel();
       $birthdays = $birthdayModel->getAllBirthdays($userId);
-      // $_SESSION['birthdays'] = $birthdays;
       return $birthdays;
     } else {
       return null;

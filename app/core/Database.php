@@ -16,7 +16,6 @@ class Database
         $dsn = $mySQLDSN;
         $pdo = new \PDO($dsn, $username, $password);
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        var_dump($pdo);
         return $pdo;
         /*
         if (self::$connection === null) {
