@@ -39,7 +39,8 @@ $router->addRoute('GET', BASE_URL  . '/connection',     'UserController',   'get
 $router->addRoute('POST', BASE_URL . '/login',          'UserController',   'userConnect', 0);
 $router->addRoute('GET', BASE_URL .  '/logout',          'UserController',   'userDisconnect', 1);
 // routes connectées
-$router->addRoute('POST', BASE_URL.'/userBdayCreation', 'UserController', 'addBirthday');
+$router->addRoute('GET', BASE_URL . '/birthdayManager', 'HomeController', 'getBirthdayManager', 1);
+$router->addRoute('POST', BASE_URL. '/userBdayCreation', 'UserController', 'addBirthday', 1);
 
 // $router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
 // $router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);

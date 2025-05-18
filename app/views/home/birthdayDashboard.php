@@ -1,8 +1,13 @@
 <div class="home-container">
     <div class="home-content">
         <h1 class="main-title">Hello <?php echo $_SESSION['pseudo']; ?> !</h1>
+        <div class="bdayAdd">
+            <div class="form-actions">
+                <a href="<?php echo BASE_URL; ?>/birthdayManager" id="birthday-manager-link"><button type="button" name="" class="btn-action">Ajouter/Supprimer un anniversaire</button></a>
+            </div>
+        </div>
         <div class="">
-            <h3>Les anniversaires du mois</h3>
+            <h3>Les prochains anniversaires :</h3>
             <p></p>
         </div>
         <div class="">
@@ -19,26 +24,6 @@
                     <?php endif; ?>
                 </ul>
             </p>
-        </div>
-        <div class="bdayAdd">
-            <h3 class="">Ajout d'anniversaire</h3>
-            <form method="POST" action="<?php echo BASE_URL;?>/userBdayCreation" id="form-bday" class="">
-                <div class="">
-                    <label for="nameBday" class="">Prénom :</label>
-                    <input type="text" id="nameBday" name="nameBday" class="bdayField" required>
-                </div>
-                <div class="">
-                    <label for="surnameBday" class="">Nom :</label>
-                    <input type="text" id="surnameBday" name="surnameBday" class="bdayField" required>
-                </div>
-                <div class="">
-                    <label for="birthdayBday" class="">Date de naissance :</label>
-                    <input type="date" id="birthdayBday" name="birthdayBday" class="bdayField" required>
-                </div>
-                <div class="">
-                    <input type="submit" name="submit_form_2" value="Enregistrer" class="">
-                </div>
-            </form>
         </div>
     </div>
 </div>

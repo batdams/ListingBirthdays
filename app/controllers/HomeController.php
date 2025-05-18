@@ -37,6 +37,16 @@ class HomeController extends Controller
     }
   }
 
+  public function getBirthdayManager() : void
+  {
+    if (SessionService::checkSession()) {
+      $_SESSION['birthdays'] = $this->getData();
+      $this->viewManager->renderMainContent('home/birthdayManager.php');
+    } else {
+      $this->viewManager->render('home/home.php');
+    }
+  }
+
   public function getData() : ?array
   {
     if (SessionService::checkSession()) {
