@@ -1,4 +1,4 @@
-<div class="connection-container">
+<div class="connection-container page-id" class="page-connection">
     <div class="connection-content">
         <h1 class="main-title">Connexion à <b>BdayList</b></h1>
         <p>Connectez-vous pour accéder à vos anniversaires enregistrés !</p> <br>

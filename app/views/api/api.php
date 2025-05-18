@@ -1,4 +1,4 @@
-<div class="api-container">
+<div class="api-container page-id" id="page-api">
     <div class="api-content">
         <h1 class="main-title">Générez une clé API pour utiliser votre listing d'anniversaire !</h1>
         <p>Pour utiliser l'API de BdayList, vous devez d'abord vous inscrire et créer un compte. Une fois inscrit, vous pourrez générer une clé API qui vous permettra d'accéder à vos données d'anniversaire.</p>

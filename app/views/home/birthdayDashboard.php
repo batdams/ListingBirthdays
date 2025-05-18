@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container page-id" id="page-birthday-dashboard">
     <div class="home-content">
         <h1 class="main-title">Hello <?php echo $_SESSION['pseudo']; ?> !</h1>
         <div class="bdayAdd">

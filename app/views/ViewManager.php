@@ -39,7 +39,7 @@ class ViewManager
      * @param string $view Le nom de la vue à afficher
      * @return void
      */
-    public function render($view)
+    public function render($view, $parameters = [])
     {
         // Charge le header
         $this->loadHeader();

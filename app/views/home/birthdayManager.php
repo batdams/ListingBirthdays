@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container page-id" id="page-birthday-manager">
     <div class="home-content">
         <h1 class="main-title">Espace de gestion des anniversaires</h1>
         <div class="bdayAdd">

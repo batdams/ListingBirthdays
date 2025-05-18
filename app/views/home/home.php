@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container page-id" id="page-home">
     <div class="home-content">
         <h1 class="main-title">N'oubliez plus les anniversaires !</h1>
         <p>Avec <b>BdayList</b>, vous pouvez :</p>

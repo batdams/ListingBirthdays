@@ -1,4 +1,4 @@
-<div class="d-flex aligne_items-center justify-content-center">
+<div class="d-flex aligne_items-center justify-content-center page-id" id="page-about">
 <section class="p-3">
                 <div class="container-sm text-center contactForm" id="Contact">
                     <h2>Formulaire de contact</h2>
