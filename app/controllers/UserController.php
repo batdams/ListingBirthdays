@@ -2,6 +2,8 @@
 
 namespace controllers;
 
+use models\Birthday;
+use models\BirthdayModel;
 use service\SessionService;
 use models\UserModel;
 
@@ -47,7 +49,20 @@ class UserController extends Controller
 
   public function addBirthday() : void
   {
-    
+    if(isset($_POST['nameBday']) && isset($_POST['surnameBday']) && isset($_POST['birthdayBday'])) {
+      $nameBday = filter_var(trim($_POST['nameBday']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $surnameBday = filter_var(trim($_POST['surnameBday']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $birthdayBday = filter_var(trim($_POST['birthdayBday']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      if($nameBday && $surnameBday && $birthdayBday) {
+        $userId = $_SESSION['id'];
+        $birthdayModel = new BirthdayModel;
+        $birthdayModel->addBirthday($nameBday, $surnameBday, $birthdayBday, $userId);
+      }
+    } else {
+      $error = 'prénom, nom ou date de naissance non définie';
+    }
+    header('Location: ' . BASE_URL . '/home');
+    exit();
   }
 
   public function getBirthdayDashboard() : void

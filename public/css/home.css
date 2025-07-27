@@ -59,7 +59,35 @@
 .home-actions {
     padding: 10px;
 }
+/* Bday Dashboard*/
+.birthday-dashboard {
+    flex-direction: row;
+    justify-content: space-around;
+}
+.bdayList ul li{
+    list-style-type: none;
+}
+/* BdayManager */
+.bdayManagement {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.bdayAdd, .bdayModify, .bdayDelete{
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-color: #4430f9;
+    padding: 4px;
+}
+.manager-item-title {
+    display: none;
+}
+.manager-item-boddy {
 
+}
+.manager-item-hide {
+    /*display: none;*/
+}
 /* API Style */
 
 /* Connection Style */
@@ -145,5 +173,26 @@
         padding: 8px 16px 8px 16px;
         margin: 4px;
         font-size: 0.9em;
+    }
+}
+/* BdayManager */
+@media (max-width: 768px) {
+    .bdayManagement {
+        display: inline;
+    }
+    .bdayAdd{
+        box-sizing: border-box;
+        background-color: #4430f9;
+    }
+    .manager-item-title {
+        display: inline;
+        box-sizing: border-box;
+        background-color: #4430f9;
+    }
+    .manager-item-boddy {
+
+    }
+    .manager-item-hide {
+        display: none;
     }
 }
