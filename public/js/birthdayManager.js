@@ -13,11 +13,20 @@ export function birthdayManager()
                     const content = document.getElementById('main-container');
                     if (content) {
                         content.innerHTML = data;
+                        displayBirthdaysToModify();
                     } else {
                         console.error("Error: Element with ID 'main-container' not found.");
                     }
                 })
             .catch(error => console.error('Error:', error));
         });
+    }
+
+    function displayBirthdaysToModify() {
+        let birthdaySelect = document.getElementById('birthday-modificator');
+        birthdaySelect.addEventListener('change', function() {
+            let selectedOption = this.options[this.selectedIndex];
+            console.log(selectedOption.getAttribute('data-name'));
+        })
     }
 }

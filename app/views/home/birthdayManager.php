@@ -33,6 +33,13 @@
                 </div>
                 <div id="modify-birthday-body" class="manager-item-body manager-item-hide">
                     <form method="POST" action="<?php echo BASE_URL;?>/userBdayModify" id="form-bday-modify" class="form-bday">
+                        <select name="birthdayToModify" id="birthday-modificator">
+                            <?php foreach ($_SESSION['data']['birthdays'] as $birthday): ?>
+                            <?php echo '<option class="birthdayID' . $birthday->getId() . '" data-name="' . $birthday->getName() . '" data-surname="' . $birthday->getSurname() . '" data-birthday="' . $birthday->getBirthday() . '"">
+                                            ' . $birthday->getName() . " " . $birthday->getSurname() .  " 
+                                        </option> "; ?>
+                            <?php endforeach; ?>
+                        </select>
                         <div class="form-group">
                             <label for="nameBday" class="">Prénom :</label>
                             <input type="text" id="nameBday" name="nameBday" class="bdayField" required>
@@ -59,7 +66,11 @@
                 <div id="delete-birthday-body" class="manager-item-body manager-item-hide">
                     <form method="POST" action="<?php echo BASE_URL;?>/userBdayCreation" id="form-bday-delete" class="form-bday">
                         <select name="" id="">
-                            <option>1</option>
+                        <?php foreach ($_SESSION['data']['birthdays'] as $birthday): ?>
+                        <?php echo '<option class="birthdayID' . $birthday->getId() . '" data-id="' . $birthday->getId() . '">
+                                        ' . $birthday->getName() . " " . $birthday->getSurname() .  " 
+                                    </option> "; ?>
+                        <?php endforeach; ?>
                         </select>
                         <div class="hideSection"></div>
                         <div class="form-actions">

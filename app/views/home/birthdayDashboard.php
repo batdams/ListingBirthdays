@@ -9,6 +9,9 @@
             </div>
             <div class="">
                 <h3>Les prochains anniversaires :</h3>
+                <?php foreach ($_SESSION['data']['nextBirthdays'] as $nextBirthday): ?>
+                <li><?php echo $nextBirthday->getName() . " " . $nextBirthday->getSurname() . " : " . $nextBirthday->getBirthday(); ?></li>
+                <?php endforeach; ?>
                 <p></p>
             </div>
         </article>
@@ -16,11 +19,11 @@
             <div class="bdayList">
                 <h3>Votre liste d'anniversaires</h3>
                 <ul>
-                    <?php if (empty($_SESSION['birthdays'])): ?>
+                    <?php if (empty($_SESSION['data']['birthdays'])): ?>
                     <li>Aucun anniversaire enregistré.</li>
                     <?php else: ?>
                     <li>Voici la liste de vos anniversaires :</li>
-                    <?php foreach ($_SESSION['birthdays'] as $birthday): ?>
+                    <?php foreach ($_SESSION['data']['birthdays'] as $birthday): ?>
                     <li><?php echo $birthday->getName() . " " . $birthday->getSurname() . " : " . $birthday->getBirthday(); ?></li>
                     <?php endforeach; ?>
                     <?php endif; ?>

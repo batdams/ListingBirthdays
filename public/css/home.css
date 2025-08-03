@@ -175,6 +175,12 @@
         font-size: 0.9em;
     }
 }
+/* Bday Dashboard*/
+@media (max-width: 768px) {
+    .birthday-dashboard {
+        flex-direction: column;
+    }
+}
 /* BdayManager */
 @media (max-width: 768px) {
     .bdayManagement {
