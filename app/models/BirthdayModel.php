@@ -64,4 +64,16 @@ class BirthdayModel
         $stmt->bindValue(':app_user_id', $app_user_id, PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function modifBirthday($name, $surname, $birthday, $id): void
+    {
+        $sql = "UPDATE birthday set name = :name, surname = :surname, birthday = :birthday WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Birthday::class);
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':surname', $surname, PDO::PARAM_STR);
+        $stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

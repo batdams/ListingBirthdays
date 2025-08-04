@@ -35,26 +35,28 @@
                     <form method="POST" action="<?php echo BASE_URL;?>/userBdayModify" id="form-bday-modify" class="form-bday">
                         <select name="birthdayToModify" id="birthday-modificator">
                             <?php foreach ($_SESSION['data']['birthdays'] as $birthday): ?>
-                            <?php echo '<option class="birthdayID' . $birthday->getId() . '" data-name="' . $birthday->getName() . '" data-surname="' . $birthday->getSurname() . '" data-birthday="' . $birthday->getBirthday() . '"">
+                            <?php echo '<option data-Id="' . $birthday->getId() . '" data-name="' . $birthday->getName() . '" data-surname="' . $birthday->getSurname() . '" data-birthday="' . $birthday->getBirthday() . '"">
                                             ' . $birthday->getName() . " " . $birthday->getSurname() .  " 
                                         </option> "; ?>
                             <?php endforeach; ?>
                         </select>
                         <div class="form-group">
-                            <label for="nameBday" class="">Prénom :</label>
-                            <input type="text" id="nameBday" name="nameBday" class="bdayField" required>
+                            <label for="nameBdayModif" class="">Prénom :</label>
+                            <input type="text" id="nameBdayModif" name="nameBdayModif" class="bdayField" required>
                         </div>
                         <div class="form-group">
-                            <label for="surnameBday" class="">Nom :</label>
-                            <input type="text" id="surnameBday" name="surnameBday" class="bdayField" required>
+                            <label for="surnameBdayModif" class="">Nom :</label>
+                            <input type="text" id="surnameBdayModif" name="surnameBdayModif" class="bdayField" required>
                         </div>
                         <div class="form-group">
-                            <label for="birthdayBday" class="">Date de naissance :</label>
-                            <input type="date" id="birthdayBday" name="birthdayBday" class="bdayField" required>
+                            <label for="birthdayBdayModif" class="">Date de naissance :</label>
+                            <input type="date" id="birthdayBdayModif" name="birthdayBdayModif" class="bdayField" required>
                         </div>
-                        <div class="hideSection"></div>
+                        <div class="hideSection">
+                            <input type="hidden" id="IDBdayModif" name="IDBdayModif" class="bdayField">
+                        </div>
                         <div class="form-actions">
-                            <button type="submit" name="submit_bday_modify" value="Modifier" class="btn-action">Modifier</button>
+                            <button type="submit" name="submit_bday_modif" value="Modifier" class="btn-action">Modifier</button>
                         </div>
                     </form>
                 </div>

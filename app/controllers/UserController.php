@@ -65,6 +65,24 @@ class UserController extends Controller
     exit();
   }
 
+  public function modifBirthday() : void
+  {
+    if(isset($_POST['nameBdayModif']) && isset($_POST['surnameBdayModif']) && isset($_POST['birthdayBdayModif'])) {
+      $nameBday = filter_var(trim($_POST['nameBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $surnameBday = filter_var(trim($_POST['surnameBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $birthdayBday = filter_var(trim($_POST['birthdayBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      if($nameBday && $surnameBday && $birthdayBday) {
+        $userId = $_SESSION['id'];
+        $birthdayModel = new BirthdayModel;
+        $birthdayModel->modifBirthday($nameBday, $surnameBday, $birthdayBday, $userId);
+      }
+    } else {
+      $error = 'prénom, nom ou date de naissance non définie';
+    }
+    header('Location: ' . BASE_URL . '/home');
+    exit();
+  }
+
   public function getBirthdayDashboard() : void
   {
     $this->viewManager->render('home/birthdayDashboard.php');

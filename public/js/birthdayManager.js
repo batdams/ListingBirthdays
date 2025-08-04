@@ -23,10 +23,24 @@ export function birthdayManager()
     }
 
     function displayBirthdaysToModify() {
-        let birthdaySelect = document.getElementById('birthday-modificator');
+        const nameModifInput = document.getElementById('nameBdayModif');
+        const surnameModifInput = document.getElementById('surnameBdayModif');
+        const birthdayModifInput = document.getElementById('birthdayBdayModif');
+        const IDModifInput = document.getElementById('IDBdayModif');
+        const birthdaySelect = document.getElementById('birthday-modificator');
+
         birthdaySelect.addEventListener('change', function() {
-            let selectedOption = this.options[this.selectedIndex];
-            console.log(selectedOption.getAttribute('data-name'));
+            const selectedOption = this.options[this.selectedIndex];
+
+            const selectedName = selectedOption.getAttribute('data-name');
+            const selectedSurname = selectedOption.getAttribute('data-surname');
+            const selectedBirthday = selectedOption.getAttribute('data-birthday');
+            const selectedID = selectedOption.getAttribute('data-Id');
+
+            nameModifInput.value = selectedName;
+            surnameModifInput.value = selectedSurname;
+            birthdayModifInput.value = selectedBirthday;
+            IDModifInput.value = selectedID;
         })
     }
 }
