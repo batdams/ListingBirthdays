@@ -16,6 +16,7 @@ define("BASE_URL", '/ListingBirthdays');
 define('WEATHER_API_KEY', $apiWeatherKey);
 
 // Inclusion des classes
+require_once 'app/services/ApiService.php';
 require_once 'app/controllers/Controller.php';
 require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/APIController.php';
@@ -39,10 +40,11 @@ $router->addRoute('GET', BASE_URL  . '/connection',         'UserController',   
 $router->addRoute('POST', BASE_URL . '/login',              'UserController',   'userConnect', 0);
 $router->addRoute('GET', BASE_URL .  '/logout',             'UserController',   'userDisconnect', 1);
 // routes connectées
-$router->addRoute('GET', BASE_URL . '/birthdayManager',     'HomeController', 'getBirthdayManager', 1);
-$router->addRoute('POST', BASE_URL. '/userBdayCreation',    'UserController', 'addBirthday', 1);
-$router->addRoute('POST', BASE_URL. '/userBdayModify',      'UserController', 'modifBirthday', 1);
-$router->addRoute('POST', BASE_URL. '/userBdayDelete',      'UserController', 'deleteBirthday', 1);
+$router->addRoute('GET', BASE_URL . '/birthdayManager',     'HomeController',   'getBirthdayManager', 1);
+$router->addRoute('POST', BASE_URL. '/userBdayCreation',    'UserController',   'addBirthday', 1);
+$router->addRoute('POST', BASE_URL. '/userBdayModify',      'UserController',   'modifBirthday', 1);
+$router->addRoute('POST', BASE_URL. '/userBdayDelete',      'UserController',   'deleteBirthday', 1);
+$router->addRoute('POST', BASE_URL. '/generateAPI',         'ApiController',    'displayAPIKey', 1);
 
 // $router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
 // $router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);

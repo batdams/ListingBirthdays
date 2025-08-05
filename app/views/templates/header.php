@@ -14,7 +14,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="nav-link-home" class="nav-link nav-icone nav-link-active" href="<?php echo BASE_URL;?>/home">
-                            <img src="public/pictures/cake-candles-solid.svg" alt="bday cake">
+                            <img src="public/pictures/cake-candles-2.svg" alt="bday cake">
                         </a>
                     </li>
                     <li class="nav-item">
