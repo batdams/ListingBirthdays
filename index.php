@@ -42,6 +42,7 @@ $router->addRoute('GET', BASE_URL .  '/logout',             'UserController',   
 $router->addRoute('GET', BASE_URL . '/birthdayManager',     'HomeController', 'getBirthdayManager', 1);
 $router->addRoute('POST', BASE_URL. '/userBdayCreation',    'UserController', 'addBirthday', 1);
 $router->addRoute('POST', BASE_URL. '/userBdayModify',      'UserController', 'modifBirthday', 1);
+$router->addRoute('POST', BASE_URL. '/userBdayDelete',      'UserController', 'deleteBirthday', 1);
 
 // $router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
 // $router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);

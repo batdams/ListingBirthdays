@@ -76,4 +76,13 @@ class BirthdayModel
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function deleteBirthday($id): void
+    {
+        $sql = "DELETE FROM birthday WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Birthday::class);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

@@ -67,17 +67,32 @@ class UserController extends Controller
 
   public function modifBirthday() : void
   {
-    if(isset($_POST['nameBdayModif']) && isset($_POST['surnameBdayModif']) && isset($_POST['birthdayBdayModif'])) {
+    if(isset($_POST['nameBdayModif']) && isset($_POST['surnameBdayModif']) && isset($_POST['birthdayBdayModif']) && isset($_POST['IDBdayModif'])) {
       $nameBday = filter_var(trim($_POST['nameBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $surnameBday = filter_var(trim($_POST['surnameBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $birthdayBday = filter_var(trim($_POST['birthdayBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-      if($nameBday && $surnameBday && $birthdayBday) {
-        $userId = $_SESSION['id'];
+      $IdBday = filter_var(trim($_POST['IDBdayModif']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      if($nameBday && $surnameBday && $birthdayBday && $IdBday) {
         $birthdayModel = new BirthdayModel;
-        $birthdayModel->modifBirthday($nameBday, $surnameBday, $birthdayBday, $userId);
+        $birthdayModel->modifBirthday($nameBday, $surnameBday, $birthdayBday, $IdBday);
       }
     } else {
       $error = 'prénom, nom ou date de naissance non définie';
+    }
+    header('Location: ' . BASE_URL . '/home');
+    exit();
+  }
+
+  public function deleteBirthday() : void
+  {
+    if(isset($_POST['birthdayToDelete'])) {
+     $birthdayID = filter_var(trim($_POST['birthdayToDelete']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      if($birthdayID) {
+        $birthdayModel = new BirthdayModel;
+        $birthdayModel->deleteBirthday($birthdayID);
+      }
+    } else {
+      $error = 'erreur lors de la suppression';
     }
     header('Location: ' . BASE_URL . '/home');
     exit();

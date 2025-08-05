@@ -66,10 +66,10 @@
                     <button class="">Supprimer un anniversaire</button>
                 </div>
                 <div id="delete-birthday-body" class="manager-item-body manager-item-hide">
-                    <form method="POST" action="<?php echo BASE_URL;?>/userBdayCreation" id="form-bday-delete" class="form-bday">
-                        <select name="" id="">
+                    <form method="POST" action="<?php echo BASE_URL;?>/userBdayDelete" id="form-bday-delete" class="form-bday">
+                        <select name="birthdayToDelete" id="birthdayToDelete">
                         <?php foreach ($_SESSION['data']['birthdays'] as $birthday): ?>
-                        <?php echo '<option class="birthdayID' . $birthday->getId() . '" data-id="' . $birthday->getId() . '">
+                        <?php echo '<option value="' . $birthday->getId() . '">
                                         ' . $birthday->getName() . " " . $birthday->getSurname() .  " 
                                     </option> "; ?>
                         <?php endforeach; ?>
