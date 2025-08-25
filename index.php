@@ -44,8 +44,9 @@ $router->addRoute('GET', BASE_URL . '/birthdayManager',     'HomeController',   
 $router->addRoute('POST', BASE_URL. '/userBdayCreation',    'UserController',   'addBirthday', 1);
 $router->addRoute('POST', BASE_URL. '/userBdayModify',      'UserController',   'modifBirthday', 1);
 $router->addRoute('POST', BASE_URL. '/userBdayDelete',      'UserController',   'deleteBirthday', 1);
-$router->addRoute('POST', BASE_URL. '/generateAPI',         'ApiController',    'displayAPIKey', 1);
-
+$router->addRoute('POST', BASE_URL. '/generateAPI',         'ApiController',    'setAPIKey', 1);
+// routes de l'API externe
+$router->addRoute('GET', BASE_URL . '/getAPIRequest',       'ApiController',    'getAPIRequest', 0);
 // $router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
 // $router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);
 // routes non traitées
@@ -57,7 +58,7 @@ $router->addRoute('GET', BASE_URL.'/logout', 'UserController', 'userDisconnect')
 
 // Récupération des informations de la requête via la super variable $_SERVER 
 $method = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $routesRequiringSession = ['/login', '/logout', '/listing', '/APIKey'];
 

@@ -50,8 +50,8 @@ class UserController extends Controller
   public function addBirthday() : void
   {
     if(isset($_POST['nameBday']) && isset($_POST['surnameBday']) && isset($_POST['birthdayBday'])) {
-      $nameBday = filter_var(trim($_POST['nameBday']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-      $surnameBday = filter_var(trim($_POST['surnameBday']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $nameBday = htmlspecialchars(trim($_POST['nameBday']), ENT_QUOTES, 'UTF-8');
+      $surnameBday = htmlspecialchars(trim($_POST['surnameBday']), ENT_QUOTES, 'UTF-8');
       $birthdayBday = filter_var(trim($_POST['birthdayBday']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       if($nameBday && $surnameBday && $birthdayBday) {
         $userId = $_SESSION['id'];

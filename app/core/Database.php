@@ -14,8 +14,12 @@ class Database
         $username = $config['username'];
         $password = $config['password'];
         $dsn = $mySQLDSN;
-        $pdo = new \PDO($dsn, $username, $password);
-        $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        $options = [
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
+        ];
+        $pdo = new \PDO($dsn, $username, $password, $options);
         return $pdo;
         /*
         if (self::$connection === null) {
