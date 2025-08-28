@@ -11,7 +11,7 @@
         </ul>
         <div class="home-actions">
             <button class="btn-action">S'inscrire maintenant</button>
-            <button class="btn-action">Se connecter</button>
+            <a class="btn-action" href="<?php echo BASE_URL;?>/connection">Se connecter</a>
         </div>
     </div>
 </div>

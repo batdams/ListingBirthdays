@@ -47,10 +47,7 @@ $router->addRoute('POST', BASE_URL. '/userBdayDelete',      'UserController',   
 $router->addRoute('POST', BASE_URL. '/generateAPI',         'ApiController',    'setAPIKey', 1);
 // routes de l'API externe
 $router->addRoute('GET', BASE_URL . '/getAPIRequest',       'ApiController',    'getAPIRequest', 0);
-// $router->addRoute('GET', BASE_URL . '/listing',         'UserController',   'getBirthdayDashboard', 1);
-// $router->addRoute('GET', BASE_URL . '/APIKEY',          'UserController',   'getAPIDashboard', 1);
 // routes non traitées
-
 $router->addRoute('POST', BASE_URL.'/userCreationView', 'UserController', 'userSubscription');
 $router->addRoute('GET', BASE_URL.'/userView', 'UserController', 'index');
 $router->addRoute('GET', BASE_URL.'/aboutView', 'AboutController', 'index');
@@ -60,7 +57,7 @@ $router->addRoute('GET', BASE_URL.'/logout', 'UserController', 'userDisconnect')
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-$routesRequiringSession = ['/login', '/logout', '/listing', '/APIKey'];
+// $routesRequiringSession = ['/login', '/logout', '/listing', '/APIKey'];
 
 // Récupération du handler associé à la requête
 $handler = $router->getHandler($method, $uri);
